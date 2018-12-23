@@ -31,7 +31,6 @@ class _DrawerViewState extends State<DrawerView> {
               leading: Icon(Icons.home),
               selected: widget.current == 'home_page' ? true : false,
               onTap: () {
-                Navigator.of(context).pop();
                 if (widget.current == 'home_page') {
                   Navigator.of(context).pop();
                 } else {
