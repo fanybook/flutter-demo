@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import './pages/home/home_page.dart';
-import './config/theme.dart';
+
+import 'package:gutfan/config/routes.dart';
+import 'package:gutfan/config/theme.dart';
+import 'package:gutfan/pages/home/home_page.dart';
 
 void main() => runApp(GutfanApp());
 
@@ -13,6 +15,7 @@ class GutfanApp extends StatelessWidget {
         primaryColor: ThemeColors.primaryColor,
       ),
       home: HomePage(),
+      routes: Routes.getRoutes(),
     );
   }
 }

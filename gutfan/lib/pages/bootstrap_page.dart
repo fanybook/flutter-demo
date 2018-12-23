@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:gutfan/components/drawer.dart';
-// import '../drawer/view_history.dart';
-// import '../drawer/offline_cache.dart';
-// import '../drawer/favorites.dart';
-// import '../drawer/followings.dart';
-// import '../drawer/contribute.dart';
-// import '../drawer/contact_css.dart';
-import './home_fisrt.dart';
+import 'package:gutfan/pages/drawer/view_history.dart';
+import 'package:gutfan/pages/drawer/offline_cache.dart';
+import 'package:gutfan/pages/drawer/favorites.dart';
+import 'package:gutfan/pages/drawer/followings.dart';
+import 'package:gutfan/pages/drawer/contribute.dart';
+import 'package:gutfan/pages/drawer/contact_css.dart';
+import 'package:gutfan/pages/home/home_fisrt.dart';
 
 // class NavigationIconView {
 //   // final String _title;
@@ -27,12 +26,12 @@ import './home_fisrt.dart';
 //     );
 // }
 
-class HomePage extends StatefulWidget {
+class BootstrapPage extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _BootstrapPageState createState() => _BootstrapPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _BootstrapPageState extends State<BootstrapPage> {
   int _currentIndex;
   List<BottomNavigationBarItem> _navigationItems;
   PageController _pageController;
@@ -145,79 +144,89 @@ class _HomePageState extends State<HomePage> {
       //       })
       //   ],
       // ),
-      drawer: DrawerView(
-        current: 'home_page',
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text('橡胶.D.霸气'),
+              accountEmail: Text('金币：10    银币：4396'),
+              currentAccountPicture: GestureDetector(
+                child: CircleAvatar(
+                  backgroundImage: NetworkImage('http://img5.mtime.cn/mt/2018/11/16/115256.24365160_180X260X4.jpg'),
+                ),
+              ),
+            ),
+            ListTile(
+              title: Text('首页'),
+              leading: Icon(Icons.home),
+              onTap: () => print('点击首页'),
+            ),
+            ListTile(
+              title: Text('历史记录'),
+              leading: Icon(Icons.timelapse),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ViewHistory()
+                ));
+              },
+            ),
+            ListTile(
+              title: Text('离线缓存'),
+              leading: Icon(Icons.cloud_download),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => OfflineCache(),
+                ));
+                // Navigator.of(context).pushNamed('/a');
+              },
+            ),
+            ListTile(
+              title: Text('我的收藏'),
+              leading: Icon(Icons.stars),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Favorites(),
+                ));
+              },
+            ),
+            ListTile(
+              title: Text('我的关注'),
+              leading: Icon(Icons.remove_red_eye),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Followings(),
+                ));
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text('投稿'),
+              leading: Icon(Icons.file_upload),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => Contribute(),
+                ));
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text('联系客服'),
+              leading: Icon(Icons.call),
+              onTap: () {
+                Navigator.of(context).pop();
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => ContactCss(),
+                ));
+              },
+            ),
+          ],
+        ),
       ),
-      // Drawer(
-      //   child: ListView(
-      //     children: <Widget>[
-      //       UserAccountsDrawerHeader(
-      //         accountName: Text('橡胶.D.霸气'),
-      //         accountEmail: Text('金币：10    银币：4396'),
-      //         currentAccountPicture: GestureDetector(
-      //           child: CircleAvatar(
-      //             backgroundImage: NetworkImage('http://img5.mtime.cn/mt/2018/11/16/115256.24365160_180X260X4.jpg'),
-      //           ),
-      //         ),
-      //       ),
-      //       ListTile(
-      //         title: Text('首页'),
-      //         leading: Icon(Icons.home),
-      //         onTap: () => print('点击首页'),
-      //       ),
-      //       ListTile(
-      //         title: Text('历史记录'),
-      //         leading: Icon(Icons.timelapse),
-      //         onTap: () {
-      //           Navigator.of(context).pop();
-      //           Navigator.of(context).pushNamed('/drawer_view_history');
-      //         },
-      //       ),
-      //       ListTile(
-      //         title: Text('离线缓存'),
-      //         leading: Icon(Icons.cloud_download),
-      //         onTap: () {
-      //           Navigator.of(context).pop();
-      //           Navigator.of(context).pushNamed('/drawer_offline_cache');
-      //         },
-      //       ),
-      //       ListTile(
-      //         title: Text('我的收藏'),
-      //         leading: Icon(Icons.stars),
-      //         onTap: () {
-      //           Navigator.of(context).pop();
-      //           Navigator.of(context).pushNamed('/drawer_favorites');
-      //         },
-      //       ),
-      //       ListTile(
-      //         title: Text('我的关注'),
-      //         leading: Icon(Icons.remove_red_eye),
-      //         onTap: () {
-      //           Navigator.of(context).pop();
-      //           Navigator.of(context).pushNamed('/drawer_followings');
-      //         },
-      //       ),
-      //       Divider(),
-      //       ListTile(
-      //         title: Text('投稿'),
-      //         leading: Icon(Icons.file_upload),
-      //         onTap: () {
-      //           Navigator.of(context).pop();
-      //           Navigator.of(context).pushNamed('/drawer_contribute');
-      //         },
-      //       ),
-      //       Divider(),
-      //       ListTile(
-      //         title: Text('联系客服'),
-      //         leading: Icon(Icons.call),
-      //         onTap: () {
-      //           Navigator.of(context).pop();
-      //           Navigator.of(context).pushNamed('/contact_css');
-      //         },
-      //       ),
-      //     ],
-      //   ),
-      // ),
       body: SafeArea(
         top: true, // 标题栏沉浸式
         // child: CustomScrollView(
