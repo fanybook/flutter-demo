@@ -12,9 +12,9 @@ import 'package:gutfan/pages/drawer/contact_css.dart';
 class Routes {
   static Map<String, WidgetBuilder> getRoutes() {
     return {
-      // '/': (BuildContext context) => BootstrapPage(), // ÓĞ'/'»á±¨´í
+      // '/': (BuildContext context) => BootstrapPage(), // æœ‰'/'ä¼šæŠ¥é”™
       '/home_page': (BuildContext context) => HomePage(),
-      // ³éÌë
+      // æŠ½å±‰
       '/drawer_view_history': (BuildContext context) => ViewHistory(),
       '/drawer_offline_cache': (BuildContext context) => OfflineCache(),
       '/drawer_favorites': (BuildContext context) => Favorites(),

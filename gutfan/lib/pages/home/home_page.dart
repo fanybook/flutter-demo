@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gutfan/config/theme.dart';
 
 import 'package:gutfan/components/drawer.dart';
 // import '../drawer/view_history.dart';
@@ -148,78 +149,8 @@ class _HomePageState extends State<HomePage> {
       drawer: DrawerView(
         current: 'home_page',
       ),
-      // Drawer(
-      //   child: ListView(
-      //     children: <Widget>[
-      //       UserAccountsDrawerHeader(
-      //         accountName: Text('橡胶.D.霸气'),
-      //         accountEmail: Text('金币：10    银币：4396'),
-      //         currentAccountPicture: GestureDetector(
-      //           child: CircleAvatar(
-      //             backgroundImage: NetworkImage('http://img5.mtime.cn/mt/2018/11/16/115256.24365160_180X260X4.jpg'),
-      //           ),
-      //         ),
-      //       ),
-      //       ListTile(
-      //         title: Text('首页'),
-      //         leading: Icon(Icons.home),
-      //         onTap: () => print('点击首页'),
-      //       ),
-      //       ListTile(
-      //         title: Text('历史记录'),
-      //         leading: Icon(Icons.timelapse),
-      //         onTap: () {
-      //           Navigator.of(context).pop();
-      //           Navigator.of(context).pushNamed('/drawer_view_history');
-      //         },
-      //       ),
-      //       ListTile(
-      //         title: Text('离线缓存'),
-      //         leading: Icon(Icons.cloud_download),
-      //         onTap: () {
-      //           Navigator.of(context).pop();
-      //           Navigator.of(context).pushNamed('/drawer_offline_cache');
-      //         },
-      //       ),
-      //       ListTile(
-      //         title: Text('我的收藏'),
-      //         leading: Icon(Icons.stars),
-      //         onTap: () {
-      //           Navigator.of(context).pop();
-      //           Navigator.of(context).pushNamed('/drawer_favorites');
-      //         },
-      //       ),
-      //       ListTile(
-      //         title: Text('我的关注'),
-      //         leading: Icon(Icons.remove_red_eye),
-      //         onTap: () {
-      //           Navigator.of(context).pop();
-      //           Navigator.of(context).pushNamed('/drawer_followings');
-      //         },
-      //       ),
-      //       Divider(),
-      //       ListTile(
-      //         title: Text('投稿'),
-      //         leading: Icon(Icons.file_upload),
-      //         onTap: () {
-      //           Navigator.of(context).pop();
-      //           Navigator.of(context).pushNamed('/drawer_contribute');
-      //         },
-      //       ),
-      //       Divider(),
-      //       ListTile(
-      //         title: Text('联系客服'),
-      //         leading: Icon(Icons.call),
-      //         onTap: () {
-      //           Navigator.of(context).pop();
-      //           Navigator.of(context).pushNamed('/contact_css');
-      //         },
-      //       ),
-      //     ],
-      //   ),
-      // ),
-      body: SafeArea(
-        top: true, // 标题栏沉浸式
+      body: Container(color: ThemeColors.primaryColor, child: SafeArea(
+        top: true, // 非沉浸式状态栏
         // child: CustomScrollView(
         //   slivers: <Widget>[
         //     SliverAppBar(
@@ -486,7 +417,7 @@ class _HomePageState extends State<HomePage> {
             },
           ),
         ),
-      ),
+      )),
       // body: PageView(
       //   controller: _pageController,
       //   physics: NeverScrollableScrollPhysics(),

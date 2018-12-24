@@ -14,6 +14,7 @@ class _DrawerViewState extends State<DrawerView> {
   Widget build(BuildContext context) {
     return Drawer(
       child: ListView(
+        padding: EdgeInsets.zero,
         children: <Widget>[
           UserAccountsDrawerHeader(
             accountName: Text('橡胶.D.霸气'),
